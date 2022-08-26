@@ -1,0 +1,219 @@
+:root{
+    --netflixBg: #141414;
+    --netflixFont: #808080;
+    --sectionFont: #eaeaea;
+}
+
+.netflixBg{
+    background-color: var(--netflixBg);
+}
+.netflixFont{
+    color: var(--netflixFont);
+}
+.sectionColor{
+    color: var(--sectionFont);
+}
+.movieCard{
+    /* background-color: white; */
+    overflow: hidden;
+    height: 150px;
+}
+.avatar{
+    width: 30px;
+}
+.nowrap{
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.movieCard img{
+    max-width: fit-content;
+}
+
+@media (max-width: 992px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 992px) {
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(16.6%);
+    }
+    
+    .carousel-inner .carousel-item-left.active, 
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-16.6%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{ 
+    transform: translateX(0);
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+  
+  :root {
+    --handle-size: 3rem;
+    --img-gap: .25rem;
+    scroll-padding-top: 20px;
+    scroll-behavior: smooth;
+  }
+ 
+  
+  .containers {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .sliders {
+    --items-per-screen: 4;
+    --slider-index: 0;
+    display: flex;
+    flex-grow: 1;
+    margin: 0 var(--img-gap);
+    transform: translateX(calc(var(--slider-index) * -100%));
+    transition: transform 250ms ease-in-out;
+    position: relative;
+  }
+  
+  .sliders > img {
+    flex: 0 0 calc(100% / var(--items-per-screen));
+    max-width: calc(100% / var(--items-per-screen));
+    aspect-ratio: 16 / 9;
+    padding: var(--img-gap);
+    border-radius: 4px;
+  }
+  
+  .handles {
+    border: none;
+    border-radius: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, .25);
+    z-index: 10;
+    margin: var(--img-gap) 0;
+    width: var(--handle-size);
+    cursor: pointer;
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    line-height: 0;
+    transition: background-color 150ms ease-in-out;
+  }
+  
+  .left-handle {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .right-handle {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .handles:hover,
+  .handles:focus {
+    background-color: rgba(255, 255, 255, .5);
+  }
+  
+  .texts {
+    transition: transform 150ms ease-in-out;
+  }
+  
+  .handles:hover .text,
+  .handles:focus .text {
+    transform: scale(1.2);
+  }
+  
+  .headers {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem calc(var(--img-gap) * 2 + var(--handle-size));
+    align-items: center;
+  }
+  
+  .titles {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .progress-bars {
+    display: flex;
+    gap: .25rem;
+    margin-left: auto;
+  }
+  
+  .progress-items {
+    flex: 0 0 1.5rem;
+    min-width: 1.5rem;
+    height: .5rem;
+    background-color: rgba(255, 255, 255, .5);
+  }
+  
+  .progress-items.active {
+    background-color: rgba(255, 255, 255, .9);
+  }
+  
+  @media (max-width: 1000px) {
+    .sliders {
+      --items-per-screen: 3;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .sliders {
+      --items-per-screen: 2;
+    }
+  }
+  .userButton{
+    background-color: #141414;
+    color: #eaeaea;
+    border: none;
+    position: relative;
+    transform: translateY(-10px);
+  }
+  .movieSelection{
+    transform: scale(1);
+    overflow: visible;
+    transition: all .1s ease-in-out;
+    z-index: 2;
+    position: relative;
+  }
+  .movieSelection:hover{
+    position: relative;
+    transform: scale(1.1);
+    transition: all .1s ease-in-out;
+    z-index: 3;
+    display: flex;
+    cursor: pointer;
+    
+  }
+  .description{    
+    position: absolute;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: #eaeaea;
+    z-index: 4;
+    opacity: 1;
+    top: 0;
+    left: 0;
+    
+  }
