@@ -121,4 +121,21 @@ $('#myCarousels').carousel({
       setTimeout(timeoutFunc, delay)
     }
   }
+
+let globalMovie = [];  
+const getResult = (d)=>{
+   globalMovie = d;
+}
+
+  const getContent = (genre) =>{
+    let result = [];
+     
+    fetch(`https://striveschool-api.herokuapp.com/api/movies/${genre}`, {
+                method: "GET",
+                headers: {"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzA3ODg0NDFlYjc2ZDAwMTUxNTAxZjgiLCJpYXQiOjE2NjE0MzgwMjAsImV4cCI6MTY2MjY0NzYyMH0.FxXNN1ADQHPQJbchifn_vi_cp1sdPcdONESnfaMV4DE"}})
+                
+                .then(res => res.json()).then(data => getResult(data))
+                .catch(err => console.log('post failed:', err));           
+                return result;     
+    }
   
